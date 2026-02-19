@@ -14,7 +14,29 @@ async def lifespan(app: FastAPI):
     yield
     # shutdown (optional)
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    lifespan=lifespan,
+    title="Task Management API",
+    description="""
+A secure Task Management REST API built with FastAPI.
+
+Features:
+- JWT Authentication
+- Object-Level Authorization
+- PostgreSQL + SQLAlchemy
+- Clean Architecture (Service + Repository pattern)
+
+This project is part of backend portfolio development.
+    """,
+    version="1.0.0",
+    contact={
+        "name": "Rico",
+        "email": "ricothenfx@gmail.com",
+        "url": "https://github.com/ricothenfx"
+    },
+    docs_url="/docs",
+    redoc_url="/redoc"
+)
 app.include_router(api_router, prefix="/api/v1")
 
 

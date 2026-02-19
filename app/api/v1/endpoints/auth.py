@@ -6,10 +6,17 @@ from app.api.deps import get_db
 from app.services.auth_service import AuthService
 from app.schemas.user import UserRegister, UserLogin
 
-router = APIRouter(prefix="/auth", tags=["Auth"])
+router = APIRouter(
+    prefix="/auth",
+    tags=["Authentication"]
+)
 
 
-@router.post("/register")
+@router.post(
+    "/register",
+    summary="Register a new user",
+    description="Create a new user account with the provided email and password."
+)
 def register(
     user: UserRegister,
     db: Session = Depends(get_db)
@@ -22,7 +29,11 @@ def register(
     return {"message": "User registered successfully"}
 
 
-@router.post("/login")
+@router.post(
+    "/login",
+    summary="User login",
+    description="Authenticate user and return a JWT access token."
+)
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),
     db: Session = Depends(get_db)
