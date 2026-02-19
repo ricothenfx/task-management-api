@@ -3,10 +3,14 @@
 A secure RESTful Task Management API built with FastAPI using Clean
 Layered Architecture.
 
-This project demonstrates: - JWT Authentication - OAuth2 Password Flow -
-Role-ready authorization structure - Object-level security -
-Repository-Service pattern - PostgreSQL integration - Environment-based
-configuration
+This project demonstrates:
+- JWT Authentication
+- OAuth2 Password Flow
+- Role-ready authorization structure
+- Object-level security
+- Repository-Service pattern
+- PostgreSQL integration
+- Environment-based configuration
 
 ------------------------------------------------------------------------
 
@@ -23,10 +27,15 @@ configuration
 
 This project follows layered architecture:
 
-app/ ├── api/ → API routes (controllers) ├── core/ → Security & config
-├── db/ → Database session setup ├── models/ → SQLAlchemy models ├──
-repositories/ → Data access layer ├── schemas/ → Pydantic schemas ├──
-services/ → Business logic └── main.py → App entry point
+app/ 
+├── api/ → API routes (controllers) 
+├── core/ → Security & config
+├── db/ → Database session setup 
+├── models/ → SQLAlchemy models 
+├── repositories/ → Data access layer 
+├── schemas/ → Pydantic schemas 
+├── services/ → Business logic 
+└── main.py → App entry point
 
 Separation of concerns ensures scalability and maintainability.
 
