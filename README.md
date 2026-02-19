@@ -1,0 +1,123 @@
+# 🚀 Task Management API (FastAPI)
+
+A secure RESTful Task Management API built with FastAPI using Clean
+Layered Architecture.
+
+This project demonstrates: - JWT Authentication - OAuth2 Password Flow -
+Role-ready authorization structure - Object-level security -
+Repository-Service pattern - PostgreSQL integration - Environment-based
+configuration
+
+------------------------------------------------------------------------
+
+## 🧠 Architecture
+
+This project follows layered architecture:
+
+app/ ├── api/ → API routes (controllers) ├── core/ → Security & config
+├── db/ → Database session setup ├── models/ → SQLAlchemy models ├──
+repositories/ → Data access layer ├── schemas/ → Pydantic schemas ├──
+services/ → Business logic └── main.py → App entry point
+
+Separation of concerns ensures scalability and maintainability.
+
+------------------------------------------------------------------------
+
+## 🔐 Authentication
+
+-   JWT Access Token (HS256)
+-   OAuth2PasswordBearer
+-   Token expiration (configurable)
+-   Secure password hashing using bcrypt
+-   Object-level authorization (users can only access their own tasks)
+
+------------------------------------------------------------------------
+
+## ⚙️ Tech Stack
+
+-   FastAPI
+-   PostgreSQL
+-   SQLAlchemy 2.0
+-   Pydantic v2
+-   python-jose
+-   Passlib (bcrypt)
+-   Uvicorn
+
+------------------------------------------------------------------------
+
+## 📦 Installation
+
+1️⃣ Clone repository
+
+``` bash
+git clone <your-repo-url>
+cd task_app
+```
+
+2️⃣ Create virtual environment
+
+``` bash
+python -m venv venv
+venv\Scripts\activate   # Windows
+```
+
+3️⃣ Install dependencies
+
+``` bash
+pip install -r requirements.txt
+```
+
+4️⃣ Create `.env` file
+
+    DATABASE_URL=postgresql+psycopg2://user:password@localhost:5432/task_db
+    SECRET_KEY=your_super_secret_key
+    ALGORITHM=HS256
+    ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+5️⃣ Run application
+
+``` bash
+uvicorn app.main:app --reload
+```
+
+Swagger UI: http://localhost:8000/docs
+
+------------------------------------------------------------------------
+
+## 🧪 API Flow
+
+1.  Register user
+2.  Login → receive access token
+3.  Authorize in Swagger
+4.  Create tasks
+5.  Access only your own tasks
+6.  Attempt accessing other user's tasks → 404 (secured)
+
+------------------------------------------------------------------------
+
+## 🔒 Security Features
+
+-   Hashed passwords with salt
+-   JWT expiration
+-   Object-level data isolation
+-   No sensitive config committed to repository
+-   Clean dependency injection
+-   Centralized DB session management
+
+------------------------------------------------------------------------
+
+## 📈 Future Improvements
+
+-   Refresh token system
+-   Role-based authorization (RBAC)
+-   Rate limiting
+-   Account lock policy
+-   Unit & integration tests
+-   Docker support
+-   Production deployment
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Built as part of backend engineering portfolio progression.
