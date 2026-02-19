@@ -26,7 +26,7 @@ This project demonstrates:
 ## 🧠 Architecture
 
 This project follows layered architecture:
-
+```
 app/ 
 ├── api/ → API routes (controllers) 
 ├── core/ → Security & config
@@ -36,7 +36,7 @@ app/
 ├── schemas/ → Pydantic schemas 
 ├── services/ → Business logic 
 └── main.py → App entry point
-
+```
 Separation of concerns ensures scalability and maintainability.
 
 ------------------------------------------------------------------------
